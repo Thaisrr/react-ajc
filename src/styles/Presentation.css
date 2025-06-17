@@ -1,0 +1,7 @@
+.bg {
+    width : 200px;
+    aspect-ratio: 1/1;
+    background-image: url("../assets/react.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
