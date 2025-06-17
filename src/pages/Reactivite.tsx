@@ -1,5 +1,10 @@
 import {useRef, useState} from "react";
 
+type BookType = {
+    id: number;
+    title: string;
+    isRead: boolean;
+}
 const Reactivite = () => {
 
     let count = 0;
@@ -9,7 +14,7 @@ const Reactivite = () => {
    // const setState = stateArray[1];
     const [counterDynamic, setCounterDynamic] = useState<number>(0);
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-    const [books, setBooks] = useState<string[]>([]);
+    const [books, setBooks] = useState<BookType[]>([]);
     const newBook = useRef<HTMLInputElement | null>(null);
 
     const increment = () => {
@@ -64,8 +69,18 @@ const Reactivite = () => {
         console.log(newBook.current?.value);
         if(newBook.current?.value) {
             const value = newBook.current?.value;
-            setBooks(prev => [...prev, value]);
+            setBooks(prev => [...prev, {id: prev.length + 1, title: value, isRead: false}]);
             newBook.current.value = '';
+        }
+    }
+
+    const setRead = (id: number) => {
+        const bookToUpdate = books.find(book => book.id === id);
+        if (bookToUpdate) {
+            const booksCopy = [...books];
+            const index = booksCopy.findIndex(book => book.id === id);
+            booksCopy[index].isRead = true;
+            setBooks(booksCopy);
         }
     }
 
@@ -107,7 +122,12 @@ const Reactivite = () => {
                 </p>
 
                 <ul>
-                    {books.map((book) => (<li key={book}>{book}</li> ))}
+                    {books.map((book) => (<li key={book.id}>
+                        {book.title}
+                        <button onClick={() => setRead(book.id)}>
+                            {book.isRead ? 'Lu' : 'Pas lu'}
+                        </button>
+                    </li> ))}
                 </ul>
             </section>
         </>
