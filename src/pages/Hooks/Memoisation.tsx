@@ -1,4 +1,5 @@
 import {useCallback, useMemo, useRef, useState} from "react";
+import {ChildMemo, ChildNonMemo} from "../../components/Children2.tsx";
 
 export const Memoisation = () => {
     const notes = [12, 20, 19, 14];
@@ -16,7 +17,7 @@ export const Memoisation = () => {
         }
     }
 
-    const [notes2, setNotes2] = useState([15, 16, 14, 18]);
+    const [notes2] = useState([15, 16, 14, 18]);
     const moyenneMemo = useMemo(() => {
         console.log('Calcule de moyenne memoisée');
         const sum = notes2.reduce((sum, curr) => sum + curr, 0);
@@ -29,6 +30,14 @@ export const Memoisation = () => {
         return sum / notes2.length;
     }, [notes2]);
 
+    const [counter, setCounter] = useState(0);
+    const increment = () => {
+        setCounter(counter => counter + 1);
+    }
+
+    const incrementCallback = useCallback(() => {
+        setCounter(counter => counter + 1);
+    }, [setCounter])
 
 
     return (
@@ -47,6 +56,11 @@ export const Memoisation = () => {
                 <input ref={inputRef} />
                 <button onClick={updateName}>Update</button>
             </p>
+
+            <h2>Memoisation des composants : <button onClick={increment}>++</button> </h2>
+
+            <ChildNonMemo counter={counter} increment={increment} />
+            <ChildMemo counter={counter} increment={incrementCallback} />
         </>
     )
 }
