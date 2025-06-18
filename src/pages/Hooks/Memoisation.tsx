@@ -1,4 +1,4 @@
-import {useMemo, useRef, useState} from "react";
+import {useCallback, useMemo, useRef, useState} from "react";
 
 export const Memoisation = () => {
     const notes = [12, 20, 19, 14];
@@ -23,12 +23,24 @@ export const Memoisation = () => {
         return sum / notes2.length;
     }, [notes2]);
 
+    const moyenneCallback = useCallback((color: string) => {
+        console.log('%c Calcul de la moyenne', `background: ${color}`)
+        const sum = notes2.reduce((sum, curr) => sum + curr, 0);
+        return sum / notes2.length;
+    }, [notes2]);
+
+
+
     return (
         <>
             <h1>Le Memoïsation</h1>
 
             <p>Moyenne : {getMoyenne()}</p>
             <p>Moyenne Mémoïsée : {moyenneMemo}</p>
+
+            <p>
+                <button onClick={() => moyenneCallback('yellow')}>Moyenne - yellow</button>
+            </p>
 
             <p>Name : {name}</p>
             <p>
