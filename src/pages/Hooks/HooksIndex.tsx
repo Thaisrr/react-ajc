@@ -11,6 +11,9 @@ const HooksIndex = () => {
                     <li>
                         <NavLink to='use-effect'>UseEffect</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='memo'>Memo</NavLink>
+                    </li>
                 </ul>
             </nav>
 

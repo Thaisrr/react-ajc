@@ -8,6 +8,7 @@ import Parent from "./pages/Parent.tsx";
 import HooksIndex from "./pages/Hooks/HooksIndex.tsx";
 import ClasseComponent from "./pages/Hooks/ClasseComponent.tsx";
 import UseEffect from "./pages/Hooks/UseEffect.tsx";
+import Memoisation from "./pages/Hooks/Memoisation.tsx";
 const App = () => {
 
     return (
@@ -22,6 +23,7 @@ const App = () => {
                     <Route path='/hooks' element={<HooksIndex />} >
                         <Route path='' element={<ClasseComponent /> } />
                         <Route path='use-effect' element={<UseEffect />} />
+                        <Route path='memo' element={<Memoisation />} />
                     </Route>
               </Routes>
           </BrowserRouter>

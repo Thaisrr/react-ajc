@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-const PI = 3.14;
+//const PI = 3.14;
 console.log('Outside component')
 
 const UseEffect = () => {
