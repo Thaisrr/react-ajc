@@ -20,6 +20,9 @@ const HooksIndex = () => {
                     <li>
                         <NavLink to='reducer'>Reducer</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='context'>Context</NavLink>
+                    </li>
                 </ul>
             </nav>
 
