@@ -9,6 +9,8 @@ import HooksIndex from "./pages/Hooks/HooksIndex.tsx";
 import ClasseComponent from "./pages/Hooks/ClasseComponent.tsx";
 import UseEffect from "./pages/Hooks/UseEffect.tsx";
 import Memoisation from "./pages/Hooks/Memoisation.tsx";
+import HooksCustom from "./pages/Hooks/HooksCustom.tsx";
+import HookReducer from "./pages/Hooks/HookReducer.tsx";
 const App = () => {
 
     return (
@@ -24,6 +26,8 @@ const App = () => {
                         <Route path='' element={<ClasseComponent /> } />
                         <Route path='use-effect' element={<UseEffect />} />
                         <Route path='memo' element={<Memoisation />} />
+                        <Route path='custom' element={<HooksCustom />} />
+                        <Route path='reducer' element={<HookReducer />} />
                     </Route>
               </Routes>
           </BrowserRouter>

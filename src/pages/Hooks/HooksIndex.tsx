@@ -14,6 +14,12 @@ const HooksIndex = () => {
                     <li>
                         <NavLink to='memo'>Memo</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='custom'>Custom</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='reducer'>Reducer</NavLink>
+                    </li>
                 </ul>
             </nav>
 
