@@ -14,6 +14,9 @@ const Navigation = () => {
                 <li>
                     <NavLink to='/reactivite'>Réactivité</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/parent'>Parent</NavLink>
+                </li>
             </ul>
 
         </nav>
