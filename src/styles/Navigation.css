@@ -1,0 +1,8 @@
+nav a:link, .nav a:visited {
+    color: mediumpurple;
+    text-decoration: none;
+}
+
+nav a.active {
+    text-decoration: underline;
+}

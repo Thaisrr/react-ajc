@@ -5,6 +5,8 @@ import ReactRouter from "./pages/ReactRouter.tsx";
 import Navigation from "./components/Navigation.tsx";
 import Reactivite from "./pages/Reactivite.tsx";
 import Parent from "./pages/Parent.tsx";
+import HooksIndex from "./pages/Hooks/HooksIndex.tsx";
+import ClasseComponent from "./pages/Hooks/ClasseComponent.tsx";
 const App = () => {
 
     return (
@@ -12,10 +14,13 @@ const App = () => {
             <BrowserRouter>
                 <Navigation />
                 <Routes>
-                  <Route path="/" element={<Presentation />} />
-                  <Route path='/router' element={<ReactRouter />} />
-                  <Route path='/reactivite' element={<Reactivite />} />
+                    <Route path="/" element={<Presentation />} />
+                    <Route path='/router/:id' element={<ReactRouter title="React Router" />} />
+                    <Route path='/reactivite' element={<Reactivite />} />
                     <Route path='/parent' element={<Parent/>} />
+                    <Route path='/hooks' element={<HooksIndex />} >
+                        <Route path='' element={<ClasseComponent /> } />
+                    </Route>
               </Routes>
           </BrowserRouter>
         </>
