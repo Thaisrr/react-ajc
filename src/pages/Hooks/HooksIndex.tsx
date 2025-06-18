@@ -8,6 +8,9 @@ const HooksIndex = () => {
                     <li>
                         <NavLink to=''>Les classes components</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='use-effect'>UseEffect</NavLink>
+                    </li>
                 </ul>
             </nav>
 

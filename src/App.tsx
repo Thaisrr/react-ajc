@@ -7,6 +7,7 @@ import Reactivite from "./pages/Reactivite.tsx";
 import Parent from "./pages/Parent.tsx";
 import HooksIndex from "./pages/Hooks/HooksIndex.tsx";
 import ClasseComponent from "./pages/Hooks/ClasseComponent.tsx";
+import UseEffect from "./pages/Hooks/UseEffect.tsx";
 const App = () => {
 
     return (
@@ -20,6 +21,7 @@ const App = () => {
                     <Route path='/parent' element={<Parent/>} />
                     <Route path='/hooks' element={<HooksIndex />} >
                         <Route path='' element={<ClasseComponent /> } />
+                        <Route path='use-effect' element={<UseEffect />} />
                     </Route>
               </Routes>
           </BrowserRouter>
