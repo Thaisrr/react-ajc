@@ -15,6 +15,7 @@ import Contexte from "./pages/Hooks/Contexte.tsx";
 import Formulaire from "./pages/Formulaire.tsx";
 import Store from "./pages/Store.tsx";
 import AlertContainer from "./components/AlertContainer.tsx";
+import Login from "./pages/Login.tsx";
 const App = () => {
 
     return (
@@ -36,6 +37,7 @@ const App = () => {
                     </Route>
                     <Route path='/form' element={<Formulaire />} />
                     <Route path='/store' element={<Store />} />
+                    <Route path='/login' element={<Login />} />
               </Routes>
 
                 <AlertContainer />

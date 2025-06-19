@@ -2,11 +2,15 @@ import {NavLink} from "react-router-dom";
 import '../styles/Navigation.css';
 import {useAppSelector} from "../utils/hooks/useStore.ts";
 import {cartLength} from "../store/CartSlice.ts";
+import {useLogin} from "../utils/hooks/useLogin.ts";
 
 const Navigation = () => {
 
     //const cart = useAppSelector(state => state.cart);
     const cart = useAppSelector(cartLength);
+    const user = useAppSelector(state => state.user);
+    const {logout} = useLogin();
+
 
     return (
         <nav>
@@ -35,6 +39,16 @@ const Navigation = () => {
                 <li>
                     <NavLink to='/store'>Les Stores</NavLink>
                 </li>
+                {!user ?
+                    <li>
+                        <NavLink to='/login'>Login</NavLink>
+                    </li>
+                    :
+                    <li>
+                        <button onClick={() => logout()}>Logout</button>
+                    </li>
+                }
+
                 <li>
                     Panier : {cart}
                 </li>
