@@ -12,6 +12,7 @@ import Memoisation from "./pages/Hooks/Memoisation.tsx";
 import HooksCustom from "./pages/Hooks/HooksCustom.tsx";
 import HookReducer from "./pages/Hooks/HookReducer.tsx";
 import Contexte from "./pages/Hooks/Contexte.tsx";
+import Formulaire from "./pages/Formulaire.tsx";
 const App = () => {
 
     return (
@@ -31,6 +32,7 @@ const App = () => {
                         <Route path='reducer' element={<HookReducer />} />
                         <Route path='context' element={<Contexte />} />
                     </Route>
+                    <Route path='form' element={<Formulaire />} />
               </Routes>
           </BrowserRouter>
         </>
