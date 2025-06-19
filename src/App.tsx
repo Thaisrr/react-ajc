@@ -13,6 +13,7 @@ import HooksCustom from "./pages/Hooks/HooksCustom.tsx";
 import HookReducer from "./pages/Hooks/HookReducer.tsx";
 import Contexte from "./pages/Hooks/Contexte.tsx";
 import Formulaire from "./pages/Formulaire.tsx";
+import Store from "./pages/Store.tsx";
 const App = () => {
 
     return (
@@ -32,7 +33,8 @@ const App = () => {
                         <Route path='reducer' element={<HookReducer />} />
                         <Route path='context' element={<Contexte />} />
                     </Route>
-                    <Route path='form' element={<Formulaire />} />
+                    <Route path='/form' element={<Formulaire />} />
+                    <Route path='/store' element={<Store />} />
               </Routes>
           </BrowserRouter>
         </>

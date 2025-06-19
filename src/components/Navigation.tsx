@@ -27,6 +27,9 @@ const Navigation = () => {
                 <li>
                     <NavLink to='/form'>React Hook Form</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/store'>Les Stores</NavLink>
+                </li>
             </ul>
 
         </nav>
