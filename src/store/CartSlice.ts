@@ -8,5 +8,6 @@ export const cartSlice = createSlice({
     }
 })
 
+export const cartLength = (state: {cart: string[]}) => state.cart.length;
 export const {addToCart} = cartSlice.actions; // pour utiliser les actions dans les composants
 export default cartSlice.reducer; // pour l'utiliser dans le store.ts

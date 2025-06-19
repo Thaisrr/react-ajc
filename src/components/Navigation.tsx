@@ -1,7 +1,12 @@
 import {NavLink} from "react-router-dom";
 import '../styles/Navigation.css';
+import {useAppSelector} from "../utils/hooks/useStore.ts";
+import {cartLength} from "../store/CartSlice.ts";
 
 const Navigation = () => {
+
+    //const cart = useAppSelector(state => state.cart);
+    const cart = useAppSelector(cartLength);
 
     return (
         <nav>
@@ -29,6 +34,9 @@ const Navigation = () => {
                 </li>
                 <li>
                     <NavLink to='/store'>Les Stores</NavLink>
+                </li>
+                <li>
+                    Panier : {cart}
                 </li>
             </ul>
 
