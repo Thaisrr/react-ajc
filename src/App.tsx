@@ -16,32 +16,53 @@ import Formulaire from "./pages/Formulaire.tsx";
 import Store from "./pages/Store.tsx";
 import AlertContainer from "./components/AlertContainer.tsx";
 import Login from "./pages/Login.tsx";
+import AuthGuard from "./utils/guards/AuthGuard.tsx";
+import {lazy} from "react";
+import Tanstack from "./pages/Tanstack.tsx";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+const Profile = lazy(() => import('./pages/Profile.tsx')); // Lazy loading
+
+
 const App = () => {
+
+    const queryClient = new QueryClient({
+       defaultOptions: {
+           queries: {
+               refetchOnWindowFocus: true,
+               staleTime: 1000 * 60 * 5,
+           }
+       }
+    });
 
     return (
         <>
-            <BrowserRouter>
-                <Navigation />
-                <Routes>
-                    <Route path="/" element={<Presentation />} />
-                    <Route path='/router/:id' element={<ReactRouter title="React Router" />} />
-                    <Route path='/reactivite' element={<Reactivite />} />
-                    <Route path='/parent' element={<Parent/>} />
-                    <Route path='/hooks' element={<HooksIndex />} >
-                        <Route path='' element={<ClasseComponent /> } />
-                        <Route path='use-effect' element={<UseEffect />} />
-                        <Route path='memo' element={<Memoisation />} />
-                        <Route path='custom' element={<HooksCustom />} />
-                        <Route path='reducer' element={<HookReducer />} />
-                        <Route path='context' element={<Contexte />} />
-                    </Route>
-                    <Route path='/form' element={<Formulaire />} />
-                    <Route path='/store' element={<Store />} />
-                    <Route path='/login' element={<Login />} />
-              </Routes>
+            <QueryClientProvider client={queryClient}>
+                <BrowserRouter>
+                    <Navigation />
+                    <Routes>
+                        <Route path="/" element={<Presentation />} />
+                        <Route path='/router/:id' element={<ReactRouter title="React Router" />} />
+                        <Route path='/reactivite' element={<Reactivite />} />
+                        <Route path='/parent' element={<Parent/>} />
+                        <Route path='/hooks' element={<HooksIndex />} >
+                            <Route path='' element={<ClasseComponent /> } />
+                            <Route path='use-effect' element={<UseEffect />} />
+                            <Route path='memo' element={<Memoisation />} />
+                            <Route path='custom' element={<HooksCustom />} />
+                            <Route path='reducer' element={<HookReducer />} />
+                            <Route path='context' element={<Contexte />} />
+                        </Route>
+                        <Route path='/form' element={<Formulaire />} />
+                        <Route path='/store' element={<Store />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/profil' element={<AuthGuard><Profile /></AuthGuard>} />
+                        <Route path='/query' element={<Tanstack />} />
+                        <Route path='*' element={<h1>😭 404 - êtes vous perdu•e ?</h1>} />
+                  </Routes>
 
-                <AlertContainer />
-          </BrowserRouter>
+                    <AlertContainer />
+              </BrowserRouter>
+          </QueryClientProvider>
         </>
     )
 }

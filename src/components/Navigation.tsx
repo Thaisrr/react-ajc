@@ -39,14 +39,23 @@ const Navigation = () => {
                 <li>
                     <NavLink to='/store'>Les Stores</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/query'>React Query</NavLink>
+                </li>
                 {!user ?
                     <li>
                         <NavLink to='/login'>Login</NavLink>
                     </li>
                     :
-                    <li>
-                        <button onClick={() => logout()}>Logout</button>
-                    </li>
+                    <>
+                        <li>
+                            <NavLink to={'/profil'}>Profil</NavLink>
+                        </li>
+                        <li>
+                            <button onClick={() => logout()}>Logout</button>
+                        </li>
+                    </>
+
                 }
 
                 <li>
